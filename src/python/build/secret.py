@@ -3,10 +3,14 @@ import os
 import json 
 
 def refresh_keys(root, conf): 
+    ## acr 
     __get_kubeconfig(conf) 
     __get_acr_token(root, conf) 
     __get_acr_server(root, conf) 
     __upload_acr_secret_to_k8s(root) 
+    ## tls 
+    __tls_cert_gen(root, config)
+    __upload_tls_cert(root) 
     pass 
 
 def __get_kubeconfig(conf):
@@ -60,4 +64,18 @@ def __upload_acr_secret_to_k8s(root):
         f'--docker-password=$(cat {root}/secret/acr/token)'
     run(cmd2) 
     pass
+
+def __tls_crt_gen(root, config):
+    host = str(host['domain_prefix']) + '.eastus.cloudapp.azure.com'
+    cmd1 = 'openssl req -newkey rsa:4096 -nodes -sha512 -x509 -days 3650 -nodes '+\
+            f'-subj "/CN=${host}" -out {root}/secret/crt/crt.pub -keyout {root}/secret/crt/crt.key'
+    run(cmd1)
+    pass 
+
+def __upload_tls_crt(root):
+    cmd1 = 'kubectl create secret tls tls-secret '+\
+            '--cert="${root}/secret/crt/crt.pub" '+\
+            '--key="${root}/secret/crt/crt.key"'
+    run(cmd1) 
+    pass 
 

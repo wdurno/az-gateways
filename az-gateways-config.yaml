@@ -8,3 +8,4 @@ tenant_id: ""
 ##defaults 
 terraform_prefix: "AZGateways" # alphanumeric characters only 
 image_name: "server:v0.0.1"
+domain_prefix: "example-gateway-1234" # results in host: example-gateway-1234.eastus.cloudapp.azure.com

@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-change-held-
         python3.6 \
         python3.6-dev \
 	&& \
-    apt-get install -y python3.6-distutils; && \
+    apt-get install -y python3.6-distutils && \
     ln -s /usr/bin/python3.6 /usr/bin/python && \
     curl -O https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py && \

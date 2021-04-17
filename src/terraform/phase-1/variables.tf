@@ -40,3 +40,13 @@ variable "compute_node_type" {
   default = "Standard_F2S_v2"
 } 
 
+variable "public_ip_name" { 
+  type = string
+  default = "publicIp"
+} 
+
+variable "public_domain_prefix" { 
+  type = string
+  default = "example-gateway-1234"
+} 
+

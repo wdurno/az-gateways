@@ -89,12 +89,15 @@ def __get_base_var_str(config):
     subscription_id = config['subscription_id']
     tenant_id = config['tenant_id']
     tf_prefix = config['terraform_prefix']
+    domain_prefix = config['domain_prefix'] 
     ## build str
     base_var_str = f' -var="subscription_id={subscription_id}"'+\
             f' -var="tenant_id={tenant_id}"'+\
             f' -var="resource_group_name={tf_prefix}rg"'+\
             f' -var="acr_name={tf_prefix}acr"'+\
             f' -var="k8s_name={tf_prefix}k8s"'+\
-            f' -var="compute_pool_name=k8spool"'
+            f' -var="compute_pool_name=k8spool"'+\
+            f' -var="public_ipname={tf_prefix}PublicIp"'+\
+            f' -var="public_domain_prefix={domain_prefix}"'
     return base_var_str
 
