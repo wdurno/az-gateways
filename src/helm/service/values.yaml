@@ -1,4 +1,4 @@
-server:
+service:
   image: ""
   replicas: 3
   port: 80

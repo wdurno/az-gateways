@@ -11,7 +11,7 @@ def deploy_service(root, conf):
     domain = str(conf['domain_prefix']) + '.eastus.cloudapp.azure.com'
     ## helm deploy 
     cmd2 = f'helm upgrade --install service {root}/src/helm/service '+\
-            f'--set image={image_name} '+\
+            f'--set service.image={image_name} '+\
             f'--set ingress.host={domain} '
     run(cmd2, os_system=True) 
     pass

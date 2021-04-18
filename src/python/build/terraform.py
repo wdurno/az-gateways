@@ -97,7 +97,7 @@ def __get_base_var_str(config):
             f' -var="acr_name={tf_prefix}acr"'+\
             f' -var="k8s_name={tf_prefix}k8s"'+\
             f' -var="compute_pool_name=k8spool"'+\
-            f' -var="public_ipname={tf_prefix}PublicIp"'+\
+            f' -var="public_ip_name={tf_prefix}PublicIp"'+\
             f' -var="public_domain_prefix={domain_prefix}"'
     return base_var_str
 

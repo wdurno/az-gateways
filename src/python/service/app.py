@@ -3,7 +3,7 @@ from waitress import serve
 import argparse 
 
 parser = argparse.ArgumentParser(description='a simple back-end service') 
-parser.add_arugment('--port', dest='port', required=False, default=80, help='which port to list to')
+parser.add_argument('--port', dest='port', required=False, default=80, help='which port to list to')
 
 app = Flask(__name__) 
 
